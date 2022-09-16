@@ -1,0 +1,51 @@
+<!DOCTYPE>
+<html>
+<head>
+<title>pay</title>
+<link rel="stylesheet" type="text/css" href="payment.css"/>
+</head>
+<body>
+<div id="holder"><a href="https://www.co.in"><img src="images/22.jpg" width="200px" height="100px"/></a>
+	 <div id="header">
+     
+	<ul>
+    	<li><a href="login.html">Login</a></li>
+    	<li><a href="overview.html">Overview</a></li>
+    	<li><a href="rest/index.html">Restaurant</a></li>
+    	<li><a href="book.html">Booking</a></li>
+        <li><a href="index.html">Home</a></li>
+    	</ul>
+    </div><!--header -->
+<div id="payment">
+	<h1>Payment Mode</h1>
+	<div id="a2">
+    <p>&nbsp;</p>
+    
+    <form method="post" autocomplete="off" name="google-sheet">
+		<img src="QRCODE.jpeg" width="200px" height="200px"/><BR><BR>
+		<label for="name">Enter Pay Transection ID:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<input id="name" name="TID" placeholder="TID" required="" tabindex="1" type="text"><br><br>
+		<label for="name">YOUR NAME:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<input id="name" name="YOUR NAME" placeholder="TID" required="" tabindex="1" type="text"><br><br>
+
+		<input type="submit" name="submit" class="btnSubmit btn-block" value="submit" />
+		
+   </form>
+    </div><!--a2-->
+</div><!--payment-->
+</div><!--holder-->
+
+
+<script>
+	const scriptURL = 'https://script.google.com/macros/s/AKfycbzF6ivHeSM7s_TTiEIGX5bFcitl44ys3PE5nmnd9AS2WNRiW5YkPNZ8VOBS_82Vz6Dw/exec'
+	const form = document.forms['google-sheet']
+  
+	form.addEventListener('submit', e => {
+	  e.preventDefault()
+	  fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+		.then(response => alert("Thanks for Contacting us..! We Will Contact You Soon..."))
+		.catch(error => console.error('Error!', error.message))
+	})
+  </script>
+</body>
+</html>
